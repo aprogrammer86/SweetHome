@@ -1,0 +1,25 @@
+﻿@inject IHomeControl Home;
+@inject IHttpClientFactory Factory;
+
+<div class="card1">
+    <div class="card-icon">
+        @Dev.SvgIcon
+    </div>
+    <div class="card-title">@Dev.Title</div>
+    <AppleSwitch OnToggle="@HandleSwitch"></AppleSwitch>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public DeviceComponet Dev { get; set; } = default!;
+
+    public async Task HandleSwitch(bool value)
+    {
+        Console.WriteLine($"From {value}");
+
+        var http = Factory.CreateClient("HomeDeviceControl");
+        BaseHDeviceCommand cmd = value ? new TurnOn(1) : new TurnOff(1);
+        var action = new DeviceAction(1, cmd);
+        var r = await Home.SendAsync<DeviceAction, DeviceActioned>(DeviceAction.GatewayRouteTemplate, action);
+    }
+}

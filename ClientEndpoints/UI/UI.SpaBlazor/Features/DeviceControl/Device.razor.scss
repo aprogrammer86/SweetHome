@@ -1,0 +1,35 @@
+﻿$navy_blue: #003171;
+$near_white: #fefefe;
+$card_width: 10rem;
+$font_scale: 0.3;
+$shadow_default: 0px 0px 20px 3px #eeeeee;
+
+$transition_delay_default: 0.1s ease-out;
+
+.card1 {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    min-width: $card_width;
+    // padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    box-shadow: $shadow_default;
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    transition: $transition_delay_default;
+
+    .card-icon {
+        background-color: $navy_blue;
+        color: white;
+        text-align: center;
+        height: 5rem;
+    }
+
+    .card-title {
+        text-align: center;
+        color: $navy_blue;
+        font-size: 1.5rem;
+        font-weight: bold;
+        background-color: white;
+    }
+}

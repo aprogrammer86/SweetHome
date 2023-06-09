@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<NpmLastInstall>node_modules/.last-install</NpmLastInstall>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Mediator.Abstractions" Version="2.1.1" />
+		<PackageReference Include="Mediator.SourceGenerator" Version="2.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.11" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Watch Include="**/*.scss" />
+		<Watch Remove="Features\DeviceControl\AppleSwitch.razor.scss" />
+		<Watch Remove="Features\DeviceControl\Device.razor.scss" />
+		<Watch Remove="Features\DeviceControl\DeviceRow.razor.scss" />
+		<None Update="**/*.css" Watch="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\js\" />
+	</ItemGroup>
+	
+	<Target Name="CompileScopedScss" BeforeTargets="Compile">
+		<ItemGroup>
+			<ScopedScssFiles Include="Features/**/*.razor.scss" />
+		</ItemGroup>
+		<Exec Command="npm run sass -- %(ScopedScssFiles.Identity) %(relativedir)%(filename).css" />
+	</Target>
+
+</Project>

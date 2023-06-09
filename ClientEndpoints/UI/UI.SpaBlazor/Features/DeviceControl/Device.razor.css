@@ -1,0 +1,26 @@
+.card1 {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  min-width: 10rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 3px #eeeeee;
+  border-radius: 5px;
+  font-family: Montserrat, sans-serif;
+  transition: 0.1s ease-out;
+}
+.card1 .card-icon {
+  background-color: #003171;
+  color: white;
+  text-align: center;
+  height: 5rem;
+}
+.card1 .card-title {
+  text-align: center;
+  color: #003171;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: white;
+}
+
+/*# sourceMappingURL=Device.razor.css.map */

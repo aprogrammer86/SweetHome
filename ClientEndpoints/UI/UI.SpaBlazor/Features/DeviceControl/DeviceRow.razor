@@ -1,0 +1,11 @@
+﻿<div class="row1">
+    @foreach (var item in Devices)
+    {
+        <Device Dev="@item"/>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public IEnumerable<DeviceComponet> Devices { get; set; } = default!;
+}

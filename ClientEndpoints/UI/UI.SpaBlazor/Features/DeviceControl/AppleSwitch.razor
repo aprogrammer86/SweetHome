@@ -1,0 +1,12 @@
+﻿<div class="switch-container">
+    <label class="toggle">
+        <input type="checkbox" @onchange="@(async (e)=> await OnToggle.InvokeAsync((bool)e.Value!))">
+        <span class="slider"></span>
+        <span class="labels" data-on="ON" data-off="OFF"></span>
+    </label>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public EventCallback<bool> OnToggle { get; set; }
+}

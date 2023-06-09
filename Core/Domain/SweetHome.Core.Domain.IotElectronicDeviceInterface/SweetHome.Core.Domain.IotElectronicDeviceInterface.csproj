@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SweetHome.Core.Domain.IotElectronicDevice\SweetHome.Core.Domain.IotElectronicDevice.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ElectronicHomes\Events\" />
+  </ItemGroup>
+
+</Project>
